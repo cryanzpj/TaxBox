@@ -12,17 +12,16 @@ body {
 }
 
 .main-container {
-    height: 400px;
     width: 100%;
     background-color: #1d539d;
     color: white;
-    padding-top: 30px;
+    padding-top: 100px;
     box-sizing: border-box;
     overflow-y: hidden;
     overflow-x: hidden;
     font-family: "Segoe UI";
-    padding: 80px;
-    margin-bottom: 30px;
+    padding: 20px;
+    margin-bottom: 10px;
 }
 
 .cloud-image {

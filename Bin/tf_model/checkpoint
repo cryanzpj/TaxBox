@@ -1,0 +1,2 @@
+model_checkpoint_path: "/Users/yuhzhao/Desktop/hackathon/project-python-flask-webapp/Bin/model.tflearn"
+all_model_checkpoint_paths: "/Users/yuhzhao/Desktop/hackathon/project-python-flask-webapp/Bin/model.tflearn"

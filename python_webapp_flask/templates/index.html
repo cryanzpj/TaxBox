@@ -2,42 +2,104 @@
 
 {% block content %}
 
-<div class="main-container">
-    <div class="cloud-image">
-        <img src="../static/img/successCloudNew.svg" />
-    </div>
-    <div class="content">
-        <div class="tweet-container">
-            <a href="http://twitter.com/intent/tweet/?text=I%20just%20created%20a%20new%20Python%20Flask%20website%20on%20Azure%20using%20Azure%20DevOps%20Project&hashtags=AzureDevOpsProject%2CVSTS%20%40Azure%20%40VSTS">
-                <img src="../static/img/tweetThis.svg" />
-            </a>
-        </div>
-        <div class="content-body">
-            <div class="success-text">Success!</div>
-            <div class="description line-1"> Azure DevOps Project has been successfully setup</div>
-            <div class="description line-2"> Your Python Flask app is up and running on Azure</div>
-        </div>
+<div class="main-container" style="height:150px">
+    <div id="sbox" style="margin-top: 50px;
+    text-align: center;">
+        <form method="get" action="/taxcodetfidfsearch" style="display: block;
+        margin-top: 0em;" class="nav-searchbar">
+            <div class="wrapper" style="border: black">
+                <input name="search_box" class="inactive" type="text" id="qfield" style="
+                width: 800px;
+                height: 40px;
+                font-size: 18px;
+                color: black;
+                " value="{{search_str}}"
+                >
+
+                <select name='number_display' style="float: left;height: 40px; width: 130px">
+
+                    <option value="3">Show : {{ show }}</option>
+                    <option value="3">Show 3</option>
+                    <option value="5">Show 5</option>
+                    <option value="10">Show 10</option>
+                </select>
+            </div>
+        </form>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Get started right away </h2>
-        <p>
-            Clone your code repository and start developing your application on IDE of your choice
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?linkid=862409">Learn more &raquo;</a></p>
+
+<div>
+    {% if results %}
+    <div class="row" style="margin-left: auto;
+    margin-right: auto;
+    background: white">
+        {% if return_code == 0 %}
+            <div>
+                Tax Code is:
+            <br>
+            <br>
+            </div>
+            <span class='tt'></span>
+            {% if final_code == 1 %}
+                <h4 style="color:black;float:left">
+                No Results Can Be Searched
+                </h4>
+            {% else %}
+                {% for row in results %}
+                <div class="apaper">
+                <h4 style="color:black;float:left">
+                    {{ results[row]['title'] }}
+                </h4>
+                <br>
+                <br>
+                <span class='tt'></span>
+                <br>
+                </div>
+            {% endfor %}
+
+            {% endif %}
+
+        {% elif return_code == 1 %}
+            <div>
+                Here is what we found in the tax code:
+            <br>
+            <br>
+            </div>
+            <span class='tt'></span>
+            {% if final_code == 1 %}
+                <h4 style="color:black;float:left">
+                No Results Can Be Searched
+                </h4>
+            {% else %}
+                {% for row in results %}
+                    <div class="apaper">
+                        <h4 style="color:black;float:left">
+                            {{ results[row]['title'] }}
+                        </h4>
+                        <br>
+                        <br>
+                        <span class='tt'>
+                        <p style="background-color: #EFE;font-size: 14px;display: block;padding: 10px;border-radius: 5px;text-align: justify;">{{ results[row]['text'] }} </p>
+                    </span>
+                        <br>
+                    </div>
+                {% endfor %}
+
+            {% endif %}
+        {% else %}
+            <br>
+            {{ results }}
+        {% endif %}
+
     </div>
-    <div class="col-md-4">
-        <h2>Continuous Delivery</h2>
-        <p>View your CI/CD pipeline on Visual Studio Team Services and customize it as per your needs</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?linkid=862410">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Azure DevOps Project</h2>
-        <p>Learn more about all you can do with Azure DevOps project by visiting the documentation</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?linkid=862126">Learn more &raquo;</a></p>
-    </div>
+    {% else %}
+    &emsp;
+    <h1>Type your question to start !</h1>
+    &emsp;
+    {% endif %}
 </div>
 
 {% endblock %}
+
+

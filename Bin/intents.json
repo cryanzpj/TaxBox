@@ -1,0 +1,31 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day"],
+         "responses": ["Hello, thanks for visiting", "Good to see you again", "Hi there, how can I help?"],
+         "context_set": ""
+        },
+        {"tag": "goodbye",
+         "patterns": ["Bye", "See you later", "Goodbye"],
+         "responses": ["See you later, thanks for visiting", "Have a nice day", "Bye! Come back again soon."]
+        },
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful"],
+         "responses": ["Happy to help!", "Any time!", "My pleasure"]
+        },
+        {"tag": "affirm",
+         "patterns": ["yes", "yeah", "yup", "indeed", "that's correct", "that's right", "ok", "indeed", "correct", "right" ],
+         "responses": ["We rent Yamaha, Piaggio and Vespa mopeds", "We have Piaggio, Vespa and Yamaha mopeds"]
+        },
+        {"tag": "taxcode",
+         "patterns": ["which tax code", "which tax law", "what is the tax code", "which section of tax code", "which part of tax code",
+                      "under which tax code" ],
+         "responses": ["Tax code is"]
+        },
+        {"tag": "taxdescription",
+         "patterns": ["how", "where", "what are the rules", "what are the tax deductions", "what is the minimum", "what is the maximum",
+                      "what is the limit", "in which case", "under which circumstances", "what is the amount", "what is the withdrawal liability",
+                      "what are the exceptions", "what is the exception"],
+         "responses": ["Here is what we found in the tax code:"]
+        }
+   ]
+}
