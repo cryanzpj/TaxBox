@@ -1,20 +1,22 @@
+from os import environ
 import numpy as np
 import nltk
+#nltk.download('punkt')
 import pickle
 import random
 import json
 import tflearn
 import tensorflow as tf
-from nltk.stem.lancaster import LancasterStemmer
+#from nltk.stem.lancaster import LancasterStemmer
 from taxcode_tfidf_search_script import *
 
 
 def clean_up_sentence(sentence):
     # tokenize the pattern
-    stemmer = LancasterStemmer()
+    #stemmer = LancasterStemmer()
     sentence_words = nltk.word_tokenize(sentence)
     # stem each word
-    sentence_words = [stemmer.stem(word.lower()) for word in sentence_words]
+    sentence_words = [word.lower() for word in sentence_words]
     return sentence_words
 
 
